@@ -28,16 +28,12 @@ public class Point implements Collider /* super class and interfaces here if nec
 
         // your code here
         return (x == point.x) && (y == point.y);
-
-        //throw new UnsupportedOperationException();
     }
 
     @Override
     public boolean isColliding(Collider other) {
-        if (other == null) return false;
-        Point point = (Point) other;
-        //if(point == null) return false;
+        if (other == null || getClass() != other.getClass()) return false;
 
-        return equals(point);
+        return equals(other);
     }
 }
